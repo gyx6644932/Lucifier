@@ -1,1 +1,0 @@
-define(["require","exports","module","react","./todo"],function(e,t,n){var r=e("react"),i=e("./todo"),s=r.createClass({displayName:"Todos",render:function(){return r.createElement("ul",{id:"todo-list"},this.props.todos.map(function(e){return r.createElement(i,r.__spread({},e,{updateTodo:this.props.updateTodo,removeTodo:this.props.removeTodo}))}.bind(this)))}});n.exports=s});

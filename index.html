@@ -1,408 +1,1004 @@
+<html lang="en">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>Jigsaw puzzle</title>
-<script src="lab/vendor/jquery-1.7.2.min.js"></script>
-<style type="text/css">
-/* init css*/
-body, div, span, h1, h2, h3, h4, h5, h6, hr, p, blockquote, strong, var, b, u, i, center, dl, dt, dd, ul, ol, li, prea, address, fieldset, form, fieldset, label, legend, button, input, textarea, th, td { margin: 0; padding: 0; }
-html { -webkit-text-size-adjust: none;}
-body { color: #444; font-size:100%; font-family: Helvetica, Tahoma, Arial,"Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",  SimSun, "宋体", Heiti, "黑体", sans-serif; }
-ul, ol { list-style-type: none; }
-select, input, img, select { vertical-align: middle; }
-button, input, select, textarea { font-size: 100%; }
-li { list-style-type: none; vertical-align: top; }
-img { vertical-align: middle; border: 0px; margin: 0; padding: 0; }
-h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; font-size: 100%; }
-address, cite, dfn, em, var { font-style: normal; }
-table { border-collapse: collapse; border-spacing: 0; }
-a { border: 0; }
-del { text-decoration: line-through; }
-em { font-style: normal; }
-legend { color: #222; }
-fieldset { border: 0; }
-a { color: #666; text-decoration: none; }
-a:hover { color: #bf1a21; text-decoration: none; }
+    <meta charset="utf-8">
+    <title>浅绿淡彩素雅时尚婚礼邀请-邀约网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/magic.min.css">
+    <link rel="stylesheet" href="css/yaoyueElementEffect.v1.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="js/layui.css">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-.clearfloat:before,.clearfloat:after {content:"";display:table;}
-.clearfloat:after { clear:both; }
-/* For IE 6/7 (trigger hasLayout) */
-.clearfloat { zoom:1; }
+    #scene {
+        float: left;
+        position: relative;
+        width: 326px;
+        height: 648px;
+        background: url('css/phone.svg') no-repeat;
+        margin-top: 90px;
+        margin-left: 25%;
+    }
 
-/* main */
+    .shareways li:nth-child(1) a {
+        background: url('images/shareico1.png') no-repeat center #fff;
+    }
 
-body { background:#eaeaea;}
+    .shareways li:nth-child(2) a {
+        background: url('images/shareico2.png') no-repeat center #fff;
+    }
 
-#puzzle { position:absolute; left:50%; top:50%; margin:-250px 0 0 -250px;min-width:500px; min-height:500px; _width:auto; _width:500px; _height:auto; _height:500px;  border:5px solid #666; background:#fff; -webkit-user-select:none;}
+    .shareways li:nth-child(3) a {
+        background: url('images/shareico3.png') no-repeat center #fff;
+    }
 
-.item { position:absolute; top:0; left:0; border:1px solid #aaa;  overflow:hidden;}
+    .shareways li:nth-child(4) a {
+        background: url('images/shareico4.png') no-repeat center #fff;
+    }
 
-.item.selected { opacity:1;}
+    .shareways li:nth-child(5) a {
+        background: url('images/shareico5.png') no-repeat center #fff;
+    }
 
-.item.selected .mask { background:rgba(155,202,121,0.6); border-radius:50%; }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        background: #000;
+    }
 
-@media \0screen\,screen\9 {
-.item.selected .mask {filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#999bca79', endColorstr='#999bca79');}
-}
+    .pagecount {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        /*bottom: 22px;*/
+        font-size: 14px;
+        color: #fff;
+        z-index: 9999;
+    }
 
-.item img { width:500px;}
+    .swiper-slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 
-.mask { width:100%; height:100%; position:absolute; left:0; top:0; background:rgba(155,202,121,0); -webkit-transition:all 1s ease;-moz-transition:all 1s ease;-o-transition:all 1s ease;transition:all 1s ease;}
+    .jiathis_webchat img {
+        display: inline-block;
+    }
 
-.levelList { width:300px; height:360px; position:absolute; top:50%; left:50%; margin:-180px 0 0 -150px; }
+    .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        opacity: .4;
+    }
 
-.levelList li { width:100%; height:40px; margin-bottom:40px; background:#6699cc; font-size:18px;  line-height:40px; text-align:center; color:#fff; ; border-radius:10px;}
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+    }
 
-li.opt { cursor:pointer}
+    @-webkit-keyframes start {
+        0%,
+        30% {
+            opacity: 0;
+            -webkit-transform: translate(0, 10px);
+        }
+        60% {
+            opacity: 1;
+            -webkit-transform: translate(0, 0);
+        }
+        100% {
+            opacity: 0;
+            -webkit-transform: translate(0, -8px);
+        }
+    }
 
-li.opt:hover { background:#9bca79; }
+    @-moz-keyframes start {
+        0%,
+        30% {
+            opacity: 0;
+            -moz-transform: translate(0, 10px);
+        }
+        60% {
+            opacity: 1;
+            -moz-transform: translate(0, 0);
+        }
+        100% {
+            opacity: 0;
+            -moz-transform: translate(0, -8px);
+        }
+    }
 
-.span { display: block;  width: 40px;  height: 40px;  position: absolute;  font-size: 30px; left: 50%;  margin-left:  -20px; bottom: -20px; color: #6699cc;}
+    @keyframes start {
+        0%,
+        30% {
+            opacity: 0;
+            transform: translate(0, 10px);
+        }
+        60% {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        100% {
+            opacity: 0;
+            transform: translate(0, -8px);
+        }
+    }
 
-#form { width:100%; height:30px;  position:absolute; top:50%; margin-top:-300px;  text-align:center;}
+    .ani {
+        position: absolute;
+    }
 
-#file, #cue, #test { width:200px; height:30px; font-size:16px; line-height:30px; text-indent:5px; border:1px solid #6699cc; color:#9bca79; }
+    .txt {
+        position: absolute;
+    }
 
-#btn, #try { width:100px; height:30px; margin-left:10px;  text-align:center; background:#6699cc; border:0; cursor:pointer; color:#fff; font-weight:bold; outline:none; }
+    #array {
+        position: absolute;
+        z-index: 999;
+        -webkit-animation: start 1.5s infinite ease-in-out;
+    }
 
-#cue { position:absolute; top:0px; left:50%; margin-left:-153px; text-align:left; border:0;}
+    .item {
+        position: absolute;
+    }
 
-#noZuoNoDie { position:absolute; left:5%; top:50%; margin-top:-250px; width:360px; }
+    .showpage {
+        display: block;
+    }
 
-.tips { color:#999; margin-top:10px; line-height:28px;}
+    .nopage {
+        display: none;
+    }
 
-.tips strong { color:#f00;}
+    .cursor {
+        cursor: pointer
+    }
 
-#copyRight { position:fixed; bottom:1%; right:1%;}
-</style>
+    .logo {
+        position: absolute;
+        z-index: 999;
+        width: 64px;
+        top: 20px;
+        left: 30px
+    }
+
+    .logo img {
+        display: block;
+        width: 100%
+    }
+
+    .svg-element {
+        display: block
+    }
+    </style>
+    <script src="https://hm.baidu.com/hm.js?6edfc4af011985567296d32283f581ce"></script>
+    <script src="http://api.map.baidu.com/getscript?v=2.0&amp;ak=WtfAdHwd1tMOCf2dzdRIhNZkSq8V7o5W&amp;services=&amp;t=" +(new="" date).gettime()=""></script>
+    <link id="layuicss-skinlayercss" rel="stylesheet" href="http://www.yaoyue365.comjs/layui/css/modules/layer/default/layer.css?v=3.0.3303" media="all">
 </head>
 
 <body>
-<div id="puzzle"></div>
-<div id="noZuoNoDie">
-    <input id="test" type="text" value="在这里输入数字"><input id="try" type="button" value="点击测试">
-    <p class="tips">说明：此测试旨在探索浏览器的处理能力。IE、Firefox、Chrome、Safari等浏览器，在处理DOM与计算小数的能力上各不相同。当DOM元素数量多到一定程度时，动画效果将消失。而对小数计算精度不足，图片之间将可能产生缝隙。</p>
-    <p class="tips">例子：输入数字10，点击测试，拼图格子数量将变成10*10，以此类推。</p>
-    <p class="tips"><strong>警示</strong>：输入数字过大，有可能超出您的浏览器的处理能力，导致浏览器崩溃，甚至电脑死机；请确定当前您的浏览器或电脑内没有需要保存的数据！</p>
-</div>
-<div id="copyRight">
-  <p>作者：<a href="http://weibo.com/islucifier" target="_blank">Lucifier</a></p>
-</div>
+    <div class="bgwrap">
+        <div class="showscene clearfix" style="transform: scale(1.2);">
+            <div id="scene" style="/* margin-left: 25%; *//* margin-top: 153.5px; */">
+                <div class="scenename">浅绿淡彩素雅时尚婚礼邀请</div>
+                <div class="phoneBox">
+                    <div class="audio_btn play"><img src="images/musicon.png"></div>
+                    <audio id="sceneaudio" src="http://res.yaoyue365.com/syspic/mp3/xiangshoushiyan.mp3" autoplay="autoplay" loop="loop"></audio>
+                    <div class="swiper-container swiper-container-vertical">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, -1512px, 0px); transition-duration: 0ms;">
+                            <section class="swiper-slide swiper-slide0" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/2b21be2f43d3896181870658e62bf3ac.png&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 72.5px; height: 77px; top: 30px; left: -7px; opacity: 1; transform: rotate(42deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/7119c2ab6dae80a45218785f8ebffbdd.png!2" class="el-bgimg" style="display: block; width: 72.5px; height: 77px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 71.5px; height: 88px; top: 9px; left: 104px; opacity: 1; transform: rotate(250deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/478b123db306ebe1f98ebd6458398bb0.png!2" class="el-bgimg" style="display: block; width: 71.5px; height: 87.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 209.5px; height: 74px; top: 56.5px; left: 171.5px; opacity: 1; transform: rotate(270deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fd4c4c4dfc515b69c83a44fc21cc9ac3.png!5" class="el-bgimg" style="display: block; width: 209.5px; height: 124px; top: 23px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 160px; height: 64px; top: 9px; left: 116.5px; opacity: 1; transform: rotate(180deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/40ae6e2afb5ed47bb33ae8211bf69635.png!4" class="el-bgimg" style="display: block; width: 160px; height: 64.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 37.5px; height: 48.5px; top: 33px; left: 284.5px; opacity: 1; transform: rotate(35deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!1" class="el-bgimg" style="display: block; width: 37.5px; height: 48.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 44px; height: 57px; top: 57px; left: 23.5px; opacity: 1; transform: rotate(180deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!1" class="el-bgimg" style="display: block; width: 44px; height: 57.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 82px; height: 121px; top: 85px; left: -11.5px; opacity: 1; transform: rotate(153deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/b957c8074853b5c3314d3257201353be.png!2" class="el-bgimg" style="display: block; width: 82px; height: 121px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="7" class="item nopage" style="width: 95px; height: 91px; top: -7.5px; left: 30px; opacity: 1; transform: rotate(242deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ee41ba57103450444a14e1d118aa2328.png!5" class="el-bgimg" style="display: block; width: 202.5px; height: 319px; top: 161px; left: 90px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="8" class="item nopage" style="width: 76px; height: 76px; top: 189.5px; left: -6.5px; opacity: 1; transform: rotate(315deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/bad48dad2049368cdebb735cecf594ce.png!4" class="el-bgimg" style="display: block; width: 185.5px; height: 292px; top: 20.5px; left: 25.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="9" class="item nopage" style="width: 56px; height: 68px; top: 235.5px; left: 33px; opacity: 1; transform: rotate(44deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/478b123db306ebe1f98ebd6458398bb0.png!2" class="el-bgimg" style="display: block; width: 56px; height: 68px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="10" class="item nopage" style="width: 59.5px; height: 135px; top: 263.5px; left: 9px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/675769d6b8f744e167a09d0c3b3e1f07.png!4" class="el-bgimg" style="display: block; width: 170.5px; height: 268.5px; top: 31.5px; left: 6.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="11" class="item nopage" style="width: 91.5px; height: 97px; top: 380.5px; left: -6.5px; opacity: 1; transform: rotate(143deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ee41ba57103450444a14e1d118aa2328.png!5" class="el-bgimg" style="display: block; width: 209px; height: 329px; top: 159px; left: 95.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="12" class="item nopage" style="width: 111.5px; height: 57.5px; top: 367px; left: 229px; opacity: 0.7; transform: rotate(90deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fc907e5e34b476a0c37d1f9cfa9460b9.png!3" class="el-bgimg" style="display: block; width: 123.5px; height: 88px; top: 19.5px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="13" class="item nopage" style="width: 106.5px; height: 118px; top: 159px; left: 228px; opacity: 1; transform: rotate(137deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png!3" class="el-bgimg" style="display: block; width: 106.5px; height: 118.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="14" class="item nopage" style="width: 69.5px; height: 76px; top: 265.5px; left: 253px; opacity: 1; transform: rotate(134deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/bad48dad2049368cdebb735cecf594ce.png!4" class="el-bgimg" style="display: block; width: 188px; height: 296.5px; top: 29.5px; left: 28px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="15" class="item nopage" style="width: 58.5px; height: 75.5px; top: 433.5px; left: 254px; opacity: 1; transform: rotate(115deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!2" class="el-bgimg" style="display: block; width: 58.5px; height: 76px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="16" class="item nopage" style="width: 110.5px; height: 133.5px; top: 379px; left: 162px; opacity: 1; transform: rotate(315deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/053a28552894ae66cc742c7cc5dbf880.png!5" class="el-bgimg" style="display: block; width: 216.5px; height: 192.5px; top: 22px; left: 43.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="17" class="item nopage" style="width: 103.5px; height: 115px; top: 410.5px; left: 49px; opacity: 1; transform: rotate(229deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png!3" class="el-bgimg" style="display: block; width: 103.5px; height: 115px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="18" class="item nopage" style="width: 62px; height: 59px; top: 417.5px; left: 110.5px; opacity: 1; transform: rotate(335deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/c1727357bddad4f8a7e9a4f0b48fbe3b.png!2" class="el-bgimg" style="display: block; width: 89.5px; height: 87px; top: 10px; left: 13px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="19" class="item nopage" style="width: 300px; height: 59.5px; top: 331px; left: 10px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: flipInY 3.8s ease 5s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/5abb30f77e88a5ba506d51c14bb9221d.png!6" class="el-bgimg" style="display: block; width: 300px; height: 106.5px; top: 26px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="20" class="item nopage" style="width: 320px; height: 32px; top: 160.5px; left: 0px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.1s ease 3.5s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: qiaoqiaoti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: italic; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 23px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">ZHANG ZHIMING</div>
+                                    </div>
+                                </div>
+                                <div index="21" class="item nopage" style="width: 320px; height: 32px; top: 190.5px; left: 0px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.1s ease 3.5s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 12px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">AND</div>
+                                    </div>
+                                </div>
+                                <div index="22" class="item nopage" style="width: 320px; height: 32px; top: 210.5px; left: 0px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.1s ease 3.5s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: qiaoqiaoti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: italic; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 23px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">YU CHUNJIAO</div>
+                                    </div>
+                                </div>
+                                <div index="23" class="item nopage" style="width: 152px; height: 39px; top: 340px; left: 82px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: flipInY 3.8s ease 5s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fa383bce1784ca5387199a6bca286795.png!6" class="el-bgimg" style="display: block; width: 287px; height: 452px; top: 34.5px; left: 64px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="24" class="item nopage" style="width: 320px; height: 32px; top: 269.5px; left: 0.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.4s ease 4.2s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: kaiti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 14px; line-height: 1.2; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">张志明&amp;余春娇</div>
+                                    </div>
+                                </div>
+                                <div index="25" class="item nopage" style="width: 320px; height: 32px; top: 294.5px; left: 0.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.4s ease 4.2s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: kaiti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 12px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">—— 2017.10.10 ——</div>
+                                    </div>
+                                </div>
+                                <div index="26" class="item nopage" style="width: 320px; height: 32px; top: 114px; left: -1px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: rotateIn 1.6s ease 1.6s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: kaiti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 18px; line-height: 1.2; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">婚礼邀请函</div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide1" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/2b21be2f43d3896181870658e62bf3ac.png&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 319.5px; height: 81.5px; top: -3.5px; left: 0px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInDown 1.3s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/8e136d50c6c1ec5e9814cae85d503b3a.png!7" class="el-bgimg" style="display: block; width: 319.5px; height: 121px; top: 16.5px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 231px; height: 60.5px; top: 433.5px; left: 43.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 4.7s ease 5.1s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/abae0a895ab6f916ac9eb8fde0812a77.png!5" class="el-bgimg" style="display: block; width: 231px; height: 86px; top: 22px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 320px; height: 32px; top: 135px; left: 0px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInUp 2.4s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 320px; height: 32px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 13px; line-height: 1.5; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">致:&nbsp;亲爱的朋友
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 167px; height: 55px; top: 280px; left: 77px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInUp 1.9s ease 3s 1 both;">
+                                        <div class="el-text" style="width: 167px; height: 55px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 13px; line-height: 1.5; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">恭请您和您的家人届时光临分享我们的喜悦</div>
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 115.5px; height: 42px; top: 366px; left: 105.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInUp 2.4s ease 4.4s 1 both;">
+                                        <div class="el-text" style="width: 115.5px; height: 42px; font-family: kaiti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 12px; line-height: 1.5; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">张志明&amp;余春娇——&nbsp;诚挚邀请&nbsp;——</div>
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 213.5px; height: 78.5px; top: 172.5px; left: 54px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInUp 2.2s ease 1.5s 1 both;">
+                                        <div class="el-text" style="width: 213.5px; height: 78.5px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 13px; line-height: 1.5; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">我们结婚啦！
+                                            <br>谨定于2017年公历10月10日
+                                            <br>我们将举行结婚典礼
+                                            <br>敬备喜宴</div>
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 263.5px; height: 49px; top: 78px; left: 28.25px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fc43d6d069dc3c8a51293c458c04894c.png!6" class="el-bgimg" style="display: block; width: 263.5px; height: 415.5px; top: 232px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide2 swiper-slide-prev" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/2b21be2f43d3896181870658e62bf3ac.png&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 125px; height: 79px; top: 8px; left: 100.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.4s ease 0.5s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/27bf656360469bb77061f8e7087fc892.png!3" class="el-bgimg" style="display: block; width: 125px; height: 79px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 54.5px; height: 55.5px; top: 372px; left: 225.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 2.4s 1 both;">
+                                        <div class="el-text" style="width: 54.5px; height: 55.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 36px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">啦</div>
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 53.5px; height: 32px; top: 384px; left: 185.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 2s 1 both;">
+                                        <div class="el-text" style="width: 53.5px; height: 32px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 35px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">婚</div>
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 66.5px; height: 46.5px; top: 392px; left: 140px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 1.6s 1 both;">
+                                        <div class="el-text" style="width: 66.5px; height: 46.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 42px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">结</div>
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 65px; height: 53.5px; top: 349.5px; left: 140px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 1s 1 both;">
+                                        <div class="el-text" style="width: 65px; height: 53.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">们</div>
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 70px; height: 54.5px; top: 345.5px; left: 96px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 70px; height: 54.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 48px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">我</div>
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 85px; height: 32px; top: 68.5px; left: 117.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.4s ease 0.4s 1 both;">
+                                        <div class="el-text" style="width: 85px; height: 32px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(255, 255, 255); font-size: 12px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px;">WEDDING</div>
+                                    </div>
+                                </div>
+                                <div index="7" class="item nopage" style="width: 113px; height: 68px; top: 407.5px; left: 39.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 2.3s ease 3s 1 both;">
+                                        <div class="el-text" style="width: 113px; height: 68px; font-family: mangguodidi; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: left; color: rgb(0, 0, 0); font-size: 12px; line-height: 1; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">If i know what love is,
+                                            <br> it is because of you.</div>
+                                    </div>
+                                </div>
+                                <div index="8" class="item nopage" style="border-radius: 0px; border: 0px solid rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 0px; color: rgb(103, 103, 103); height: 219px; left: 23px; opacity: 1; padding-bottom: 0px; padding-top: 0px; text-align: left; top: 114px; transform: rotateZ(0deg); width: 281px; z-index: 0;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2s ease 1s 1 both;">
+                                        <!----><img src="http://77g1mh.com1.z0.glb.clouddn.com/123.PNG" class="el-bgimg" style="display: block; height: 230px; width: 281px; margin-left: 0px; margin-top: 0px; top: 0px; left: 0px;">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide3 swiper-slide-active" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/643f772d5a5fb711a23d1dc676e09d37.jpg&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item showpage" style="width: 272px; height: 339px; top: 130px; left: 24px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/2b21be2f43d3896181870658e62bf3ac.png!6" class="el-bgimg" style="display: block; width: 272px; height: 428.5px; top: 49px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item showpage" style="width: 128.5px; height: 129.5px; top: 186.5px; left: 28.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/aca446450771dd7d78357b91e0f184c8.jpg!3" class="el-bgimg" style="display: block; width: 128.5px; height: 129.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item showpage" style="width: 129px; height: 129px; top: 186.5px; left: 162px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 1s ease 1.1s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/04fa4e0e84a8fd8b0176c3b29bbf1d6c.jpg!3" class="el-bgimg" style="display: block; width: 129px; height: 129px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="3" class="item showpage" style="width: 128px; height: 127.5px; top: 322.5px; left: 28px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 1s ease 2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/634cb08639244ade3dc2fc778f01ac63.jpg!3" class="el-bgimg" style="display: block; width: 128px; height: 127.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="4" class="item showpage" style="width: 129.5px; height: 128.5px; top: 322.5px; left: 162.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 1s ease 2.5s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/676124767f983f948aedd1bd7cf33a9b.jpg!3" class="el-bgimg" style="display: block; width: 129.5px; height: 128.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="5" class="item showpage" style="width: 35px; height: 33.5px; top: 31.5px; left: 122px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.5s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/f703d877c81a8e9035bea574de611929.png!1" class="el-bgimg" style="display: block; width: 35px; height: 33.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="6" class="item showpage" style="width: 80.5px; height: 73px; top: 25.5px; left: 62.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 73px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 60px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">爱</div>
+                                    </div>
+                                </div>
+                                <div index="7" class="item showpage" style="width: 92.5px; height: 54px; top: 38.5px; left: 157px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 92.5px; height: 54px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">故事</div>
+                                    </div>
+                                </div>
+                                <div index="8" class="item showpage" style="width: 46px; height: 47.5px; top: 63px; left: 120px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 46px; height: 47.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 35px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">的</div>
+                                    </div>
+                                </div>
+                                <div index="9" class="item showpage" style="width: 52px; height: 57px; top: 121px; left: 273.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/5fbb70f1d8dc1defe68074772f588eec.png!2" class="el-bgimg" style="display: block; width: 52px; height: 57px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="10" class="item showpage" style="width: 63px; height: 92.5px; top: 149px; left: 260px; opacity: 1; transform: rotate(155deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/b957c8074853b5c3314d3257201353be.png!2" class="el-bgimg" style="display: block; width: 63px; height: 92.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="11" class="item showpage" style="width: 59.5px; height: 42.5px; top: 107px; left: 243.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fc907e5e34b476a0c37d1f9cfa9460b9.png!2" class="el-bgimg" style="display: block; width: 59.5px; height: 42.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="12" class="item showpage" style="width: 32.5px; height: 42.5px; top: 123px; left: 259.5px; opacity: 1; transform: rotate(246deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!1" class="el-bgimg" style="display: block; width: 32.5px; height: 42.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="13" class="item showpage" style="width: 81.5px; height: 98.5px; top: 88.5px; left: 173.5px; opacity: 1; transform: rotate(311deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/053a28552894ae66cc742c7cc5dbf880.png!3" class="el-bgimg" style="display: block; width: 110.5px; height: 98.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="14" class="item showpage" style="width: 61.5px; height: 89px; top: 133.5px; left: -2.5px; opacity: 1; transform: rotate(196deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/0dd08a5336ae68e44af061a9e3ba71ea.png!2" class="el-bgimg" style="display: block; width: 61.5px; height: 89px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="15" class="item showpage" style="width: 49.5px; height: 53px; top: 100px; left: 18.5px; opacity: 1; transform: rotate(305deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/7119c2ab6dae80a45218785f8ebffbdd.png!1" class="el-bgimg" style="display: block; width: 49.5px; height: 53px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="16" class="item showpage" style="width: 106.5px; height: 62.5px; top: 103.5px; left: 43px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fd4c4c4dfc515b69c83a44fc21cc9ac3.png!3" class="el-bgimg" style="display: block; width: 106.5px; height: 63px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="17" class="item showpage" style="width: 59.5px; height: 72.5px; top: 113.5px; left: 24.5px; opacity: 1; transform: rotate(129deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.9s ease 4.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/478b123db306ebe1f98ebd6458398bb0.png!2" class="el-bgimg" style="display: block; width: 59.5px; height: 72.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="18" class="item showpage" style="width: 110px; height: 33px; top: 452.5px; left: 105px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 4.3s ease 3.9s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/abae0a895ab6f916ac9eb8fde0812a77.png!3" class="el-bgimg" style="display: block; width: 133px; height: 49.5px; top: 24px; left: 30px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide4 swiper-slide-next" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/2b21be2f43d3896181870658e62bf3ac.png&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 142.5px; height: 215.5px; top: 37.5px; left: 13.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 2.2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/f258b96308362dd6fb31793e8abc1e9a.jpg!3" class="el-bgimg" style="display: block; width: 142.5px; height: 215.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 136px; height: 103px; top: 36px; left: 167.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/c04b2c6276f3feec4ab9c1c7f0cf5a42.jpg!3" class="el-bgimg" style="display: block; width: 136px; height: 103px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 136px; height: 102px; top: 151px; left: 168.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/5d5574a5f521e27750571355a255133d.jpg!3" class="el-bgimg" style="display: block; width: 136px; height: 102px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 134.5px; height: 100px; top: 265.5px; left: 169px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/91f5c3c8b591e1dbdd30fa1b81b22214.jpg!3" class="el-bgimg" style="display: block; width: 134.5px; height: 100px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 80.5px; height: 55.5px; top: 376px; left: 31px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 55.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 50px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">执</div>
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 80.5px; height: 46px; top: 377px; left: 76px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 46px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">子</div>
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 80.5px; height: 60px; top: 421.5px; left: 53.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 60px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">之</div>
+                                    </div>
+                                </div>
+                                <div index="7" class="item nopage" style="width: 80.5px; height: 59.5px; top: 423.5px; left: 94px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 59.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 50px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">手</div>
+                                    </div>
+                                </div>
+                                <div index="8" class="item nopage" style="width: 133px; height: 50.5px; top: 329px; left: 18px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 3s ease 1.2s 1 both;">
+                                        <div class="el-text" style="width: 133px; height: 50.5px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 12px; line-height: 1.35; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">在天愿作比翼鸟，在地愿为连理枝。</div>
+                                    </div>
+                                </div>
+                                <div index="9" class="item nopage" style="width: 80px; height: 118px; top: 376px; left: 174.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.9s ease 1.2s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/b957c8074853b5c3314d3257201353be.png!2" class="el-bgimg" style="display: block; width: 80px; height: 117.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="10" class="item nopage" style="width: 41px; height: 88px; top: -31px; left: 29.5px; opacity: 1; transform: rotate(123deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/675769d6b8f744e167a09d0c3b3e1f07.png!3" class="el-bgimg" style="display: block; width: 124.5px; height: 196px; top: 41px; left: 10px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="11" class="item nopage" style="width: 92.5px; height: 82px; top: -19px; left: -32px; opacity: 1; transform: rotate(173deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/053a28552894ae66cc742c7cc5dbf880.png!2" class="el-bgimg" style="display: block; width: 92.5px; height: 82px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="12" class="item nopage" style="width: 69px; height: 76.5px; top: 6px; left: -24.5px; opacity: 1; transform: rotate(298deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png!2" class="el-bgimg" style="display: block; width: 69px; height: 76.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="13" class="item nopage" style="width: 52.5px; height: 68.5px; top: 53px; left: -24px; opacity: 1; transform: rotate(139deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!2" class="el-bgimg" style="display: block; width: 52.5px; height: 68.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="14" class="item nopage" style="width: 95px; height: 56px; top: -24.5px; left: 39.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fd4c4c4dfc515b69c83a44fc21cc9ac3.png!2" class="el-bgimg" style="display: block; width: 95px; height: 56px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="15" class="item nopage" style="width: 58px; height: 71px; top: -11.5px; left: 47px; opacity: 1; transform: rotate(126deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/478b123db306ebe1f98ebd6458398bb0.png!2" class="el-bgimg" style="display: block; width: 58px; height: 71px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide5" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/2b21be2f43d3896181870658e62bf3ac.png&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 146px; height: 234.5px; top: 244px; left: 13.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/36a8766689a07335e173b3051623cf58.jpg!3" class="el-bgimg" style="display: block; width: 146px; height: 234.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 141.5px; height: 141px; top: 36px; left: 167px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/2d5b4ae37f27ca416efbf5ad27f77448.jpg!3" class="el-bgimg" style="display: block; width: 141.5px; height: 141px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 139.5px; height: 139px; top: 189px; left: 167px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/c1240ea51bedd0c3f9229796ab1e2e1f.jpg!3" class="el-bgimg" style="display: block; width: 139.5px; height: 139px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 139px; height: 141px; top: 337.5px; left: 167px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInRight 2s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/84bd784affd814a70e47c45f89836419.jpg!3" class="el-bgimg" style="display: block; width: 139px; height: 141px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 141px; height: 52px; top: 184px; left: 14px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.5s ease 2.9s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/abae0a895ab6f916ac9eb8fde0812a77.png!3" class="el-bgimg" style="display: block; width: 141px; height: 52.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 41px; height: 88px; top: -26.5px; left: 29.5px; opacity: 1; transform: rotate(123deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/675769d6b8f744e167a09d0c3b3e1f07.png!3" class="el-bgimg" style="display: block; width: 124.5px; height: 196px; top: 41px; left: 10px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 92.5px; height: 82px; top: -14px; left: -32.5px; opacity: 1; transform: rotate(173deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/053a28552894ae66cc742c7cc5dbf880.png!2" class="el-bgimg" style="display: block; width: 92.5px; height: 82px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="7" class="item nopage" style="width: 44.5px; height: 47px; top: -19.5px; left: 50.5px; opacity: 1; transform: rotate(327deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/7119c2ab6dae80a45218785f8ebffbdd.png!1" class="el-bgimg" style="display: block; width: 44.5px; height: 47px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="8" class="item nopage" style="width: 69px; height: 76.5px; top: 11px; left: -25px; opacity: 1; transform: rotate(298deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png!2" class="el-bgimg" style="display: block; width: 69px; height: 76.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="9" class="item nopage" style="width: 52.5px; height: 68.5px; top: 58px; left: -24.5px; opacity: 1; transform: rotate(139deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fe310449d1e5926cb9c8363eeac5119e.png!2" class="el-bgimg" style="display: block; width: 52.5px; height: 68.5px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="10" class="item nopage" style="width: 58px; height: 71px; top: -10.5px; left: 48px; opacity: 1; transform: rotate(126deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/478b123db306ebe1f98ebd6458398bb0.png!2" class="el-bgimg" style="display: block; width: 58px; height: 71px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="11" class="item nopage" style="width: 95px; height: 56px; top: -20px; left: 44px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 2.1s ease 3s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/fd4c4c4dfc515b69c83a44fc21cc9ac3.png!2" class="el-bgimg" style="display: block; width: 95px; height: 56px; top: 0px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="12" class="item nopage" style="width: 80.5px; height: 56.5px; top: 17px; left: 31px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.2s ease 1.3s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 56.5px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 50px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">与</div>
+                                    </div>
+                                </div>
+                                <div index="13" class="item nopage" style="width: 80.5px; height: 48px; top: 58px; left: 71px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.2s ease 1.3s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 48px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">子</div>
+                                    </div>
+                                </div>
+                                <div index="14" class="item nopage" style="width: 65.5px; height: 44px; top: 85px; left: 40.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.2s ease 1.3s 1 both;">
+                                        <div class="el-text" style="width: 65.5px; height: 44px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 40px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">偕</div>
+                                    </div>
+                                </div>
+                                <div index="15" class="item nopage" style="width: 80.5px; height: 62px; top: 119px; left: 71.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeIn 2.2s ease 1.3s 1 both;">
+                                        <div class="el-text" style="width: 80.5px; height: 62px; font-family: tiantianquan; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 50px; line-height: 1.3; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">老</div>
+                                    </div>
+                                </div>
+                                <div index="16" class="item nopage" style="width: 100px; height: 45.5px; top: 149.5px; left: 0.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInLeft 3s ease 3.1s 1 both;">
+                                        <div class="el-text" style="width: 100px; height: 45.5px; font-family: xiaoluti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 12px; line-height: 1.35; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px;">死生契阔，与子成说。</div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide6" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/643f772d5a5fb711a23d1dc676e09d37.jpg&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 343px; height: 257px; top: 49px; left: -11.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 0s ease 0s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/2b21be2f43d3896181870658e62bf3ac.png!7" class="el-bgimg" style="display: block; width: 344px; height: 542px; top: 36px; left: 0px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 321px; height: 225px; top: 67px; left: -0.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 3.4s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/e6c504fd5d743f63637aa6edcefd6c31.png!8" class="el-bgimg" style="display: block; width: 397px; height: 625.5px; top: 62px; left: 28px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 214px; height: 127.5px; top: 119.5px; left: 50.5px; opacity: 1; transform: rotate(0deg);">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div style="width: 100%; height: 100%; position: relative;"><img src="http://api.map.baidu.commage/v2?ak=WtfAdHwd1tMOCf2dzdRIhNZkSq8V7o5W&amp;width=214&amp;height=127.5&amp;dpiType=ph&amp;markers=117.309403,31.837506&amp;markerStyles=l,,0xff0000&amp;center=117.309403,31.837506&amp;labels=117.309403,31.837506&amp;zoom=17&amp;labelStyles=我在这,1,14,0xffffff,0x1abd9b,1"><a style="width: 80px; height: 30px; line-height: 30px; position: absolute; right: 10px; bottom: 10px; color: rgb(255, 255, 255); text-align: center; border-radius: 3px; background: rgb(26, 189, 155);">导 航</a></div>
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 232.5px; height: 95.5px; top: 346.5px; left: 45.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 3.1s ease 0.6s 1 both;">
+                                        <div class="el-text" style="width: 232.5px; height: 95.5px; font-family: kaiti; border-color: rgb(0, 0, 0); border-style: none; border-radius: 0px; font-style: normal; font-weight: normal; text-align: center; color: rgb(0, 0, 0); font-size: 14px; line-height: 1.5; box-shadow: black 0px 0px 0px; letter-spacing: 0px; top: 0px; left: 0px;">吉时：2017年公历10月10日中午12时28分
+                                            <br>宴址：高新区世纪城路88号天堂洲际大饭店2楼（近新会展中心）</div>
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 75px; height: 39.5px; top: 43px; left: 125.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/d7f25cf65a3d309c996c41a9d759d07a.png!4" class="el-bgimg" style="display: block; width: 196px; height: 308px; top: 25px; left: 74px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="swiper-slide swiper-slide7" style="height: 504px;">
+                                <div class="pagebg" style="width: 100%; height: 100%; z-index: -888; background: url(&quot;http://res.yaoyue365.com/syspic/bg/643f772d5a5fb711a23d1dc676e09d37.jpg&quot;) left top / cover no-repeat;"></div>
+                                <div index="0" class="item nopage" style="width: 215.5px; height: 532px; top: -11px; left: 51.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInUp 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/2b21be2f43d3896181870658e62bf3ac.png!7" class="el-bgimg" style="display: block; width: 337.5px; height: 532px; top: 0px; left: 57px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="1" class="item nopage" style="width: 92.5px; height: 93px; top: 51.5px; left: 114px; opacity: 1; transform: rotate(0deg); border-radius: 50px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: rotateIn 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/9c6c345454f5ed847a9868132254bda3.jpg!2" class="el-bgimg" style="display: block; width: 92.5px; height: 93px; top: 0px; left: 0px; border-radius: 50px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="2" class="item nopage" style="width: 144px; height: 150.5px; top: 11px; left: 99.5px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: rotateIn 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/7311d22434f307a29d78402503d96f49.png!6" class="el-bgimg" style="display: block; width: 255px; height: 402px; top: 109.5px; left: 72.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                                <div index="3" class="item nopage" style="width: 190.5px; height: 36px; top: 169.5px; left: 65px; opacity: 1; transform: rotate(0deg); padding: 0px 20px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div class="inputs" style="position: relative; line-height: 36px;">
+                                            <input id="14962458848731" data-flag="" style="position: absolute; width: 100%; height: 36px; border: 1px solid rgb(123, 148, 109); border-radius: 8px; color: rgb(75, 75, 75); font-size: 14px; line-height: 36px; padding: 0px 10px; background: rgb(252, 252, 252);"><span style="position: relative; pointer-events: none; opacity: 0.7; padding-left: 20px;">姓名</span><span style="position: relative; pointer-events: none; color: red; display: none;">*</span></div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div index="4" class="item nopage" style="width: 190.5px; height: 36px; top: 215.5px; left: 65px; opacity: 1; transform: rotate(0deg); padding: 0px 20px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div class="inputs" style="position: relative; line-height: 36px;">
+                                            <input id="14962458963041" data-flag="" style="position: absolute; width: 100%; height: 36px; border: 1px solid rgb(123, 148, 109); border-radius: 8px; color: rgb(75, 75, 75); font-size: 14px; line-height: 36px; padding: 0px 10px; background: rgb(252, 252, 252);"><span style="position: relative; pointer-events: none; opacity: 0.7; padding-left: 20px;">人数</span><span style="position: relative; pointer-events: none; color: red; display: none;">*</span></div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div index="5" class="item nopage" style="width: 190.5px; height: 36px; top: 261.5px; left: 65px; opacity: 1; transform: rotate(0deg); padding: 0px 20px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div class="inputs" style="position: relative; line-height: 36px;">
+                                            <input id="14962459046061" data-flag="" style="position: absolute; width: 100%; height: 36px; border: 1px solid rgb(123, 148, 109); border-radius: 8px; color: rgb(75, 75, 75); font-size: 14px; line-height: 36px; padding: 0px 10px; background: rgb(252, 252, 252);"><span style="position: relative; pointer-events: none; opacity: 0.7; padding-left: 20px;">电话</span><span style="position: relative; pointer-events: none; color: red; display: none;">*</span></div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div index="6" class="item nopage" style="width: 190.5px; height: 108px; top: 307.5px; left: 65px; opacity: 1; transform: rotate(0deg); padding: 0px 20px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div class="inputs" style="position: relative; line-height: 36px;">
+                                            <input id="14962459089774" data-flag="" style="position: absolute; width: 100%; height: 108px; border: 1px solid rgb(123, 148, 109); border-radius: 8px; color: rgb(75, 75, 75); font-size: 14px; line-height: 36px; padding: 0px 10px; background: rgb(252, 252, 252);"><span style="position: relative; pointer-events: none; opacity: 0.7; padding-left: 20px;">您的祝福</span><span style="position: relative; pointer-events: none; color: red; display: none;">*</span></div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <div index="7" class="item nopage" style="width: 190.5px; height: 36px; top: 425.5px; left: 65px; opacity: 1; transform: rotate(0deg); padding: 0px 20px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: fadeInNormal 1s ease 0.6s 1 both;">
+                                        <div style="padding: 0px 20px; width: 100%; height: 108px; border: 0px solid rgb(123, 148, 109); text-align: center; border-radius: 8px; color: rgb(255, 255, 255); font-size: 16px; line-height: 36px; background: rgb(123, 148, 109);"> 参加婚礼</div>
+                                    </div>
+                                </div>
+                                <div index="8" class="item nopage" style="width: 168px; height: 43.5px; top: 449px; left: 76px; opacity: 1; transform: rotate(0deg); border-radius: 0px;">
+                                    <div class="amious" style="overflow: hidden; width: 100%; height: 100%; animation: zoomIn 1s ease 0.6s 1 both;">
+                                        <!----><img src="http://res.yaoyue365.com/syspic/img/8ce24073a114feba33ff345af1cfec3a.png!5" class="el-bgimg" style="display: block; width: 207px; height: 326px; top: 338.5px; left: 8.5px; border-radius: 0px; box-shadow: black 0px 0px 0px; border-style: none;">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination-progress" style="transform-origin: 100% 0px 0px; transform: rotate(-90deg); top: 500px; height: 320px; display: none;"><span class="swiper-pagination-progressbar" style="transform: translate3d(0px, 0px, 0px) scaleX(1) scaleY(0.5); transition-duration: 300ms;"></span></div>
+                        <div class="pagecount" style="display: none;">4/8</div>
+                    </div> <img src="images/up.png" id="array" class="resize" style="width: 60px; height: 36px; bottom: 10%; left: 130px;"></div>
+                <div class="panel">
+                    <div id="prev" class="pageprev cursor">上
+                        <br>一
+                        <br>页</div>
+                    <div id="next" class="pagenext cursor">下
+                        <br>一
+                        <br>页</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/layui.js"></script>
+    <script src="js/vue2-countdown.js"></script>
+    <script src="js/swiper-3.4.2.jquery.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/page.js?t=1504527062"></script>
+    <script type="text/javascript">
+    var height = $(window).height();
+    var sceneheight = $("#scene").height();
+    var shareheight = $(".share").height();
+    var rate = ($(window).width()) / 1920;
+    if ($(window).width() >= 1920) {
+        rate = 1.2
+        ml = '25%'
+        mt = (height - sceneheight) / 2
+    } else if ($(window).width() >= 1400) {
+        rate = 1
+        ml = '20%'
+        mt = (height - sceneheight) / 2
+    } else if ($(window).width() >= 1024) {
+        rate = 0.8
+        ml = '10%'
+        mt = (height - sceneheight) / 2
+    } else {
+        rate = 0.6
+        ml = '-15%'
+        mt = (height - sceneheight) / 2
+    }
+    $(".showscene").css({ 'transform': 'scale(' + rate + ')' })
+    $("#scene").css({ 'margin-left': ml, 'margin-top': mt + 'px' })
+    $(".share").css({ 'margin-left': '15%', 'margin-top': (height - shareheight) / 2 + 'px' })
 
-<script type="text/javascript">
-//作者：Lucifier
-//微博：http://weibo.com/islucifier
-  $(function() {
-	  var puzzle = {
-		  area: $('#puzzle'),
-		  //初始化
-		  init: function() {
-			this.drawIndex().getLevel().createInput().toDie();
-		  },
+    $(window).resize(function() {
+        var height = $(window).height();
+        var sceneheight = $("#scene").height();
+        var shareheight = $(".share").height();
+        var rate = ($(window).width()) / 1920;
+        if ($(window).width() >= 1920) {
+            rate = 1.2
+            ml = '25%'
+            mt = (height - sceneheight) / 2
+        } else if ($(window).width() >= 1400) {
+            rate = 1
+            ml = '20%'
+            mt = (height - sceneheight) / 2
+        } else if ($(window).width() >= 1024) {
+            rate = 0.8
+            ml = '10%'
+            mt = (height - sceneheight) / 2
+        } else {
+            rate = 0.6
+            ml = '-15%'
+            mt = (height - sceneheight) / 2
+        }
+        $(".showscene").css({ 'transform': 'scale(' + rate + ')' })
+        $("#scene").css({ 'margin-left': ml, 'margin-top': mt + 'px' })
+        $(".share").css({ 'margin-left': '15%', 'margin-top': (height - shareheight) / 2 + 'px' })
 
-		  //提供换图控件
-		  createInput: function() {
-		  	var that = this,
-		  	form = $('<form></form>'),
-		  	file = $('<input>').attr('type', 'text'),
-		  	btn = $('<input>').attr({
-		  		type: 'button',
-		  		value: '更换图片'}),
-		  	cue = $('<div>请将图片网址粘贴在<span>这里</span></div>');
+    })
 
-		  	form.append(cue, file, btn).appendTo(document.body)[0].id = 'form';
-		  	file[0].id = 'file';
 
-		  	btn.on('click', function() {
-		  		var i, src = file.val(), srcArray = that.state.src, len = srcArray.length;
-		  		if (src.length === 0) {
-		  			alert('请输入网址!');
-		  			return;
-		  		}  else if (srcArray[0] === src) {
-		  				that.play();
-		  				return;
-		  			}
-		  		for (i= 0; i < len; i += 1) {
-		  			if (srcArray[i] === src) {
-		  				srcArray.unshift(srcArray.splice(i, 1)[0]);
-		  				that.play();
-		  				return;
-		  			}
-		  		}
-		  		srcArray .unshift(src);
-		  		that.play();
-		  	})[0].id = 'btn';
+    var jiathis_config = {
+        url: "http://" + window.location.host + "/v/CYK9h7R9L6mI",
+        summary: "邀约网 - 浅绿淡彩素雅时尚婚礼邀请",
+        title: "浅绿淡彩素雅时尚婚礼邀请 ##",
+        shortUrl: true,
+        hideMore: false
+    }
+    </script>
+    <script>
+    var _self = this;
+    var loop = 0;
+    var ispage = 0;
+    var auto_play = 0 * 1000;
+    var page_mode = 1;
 
-		  	cue.one('click', function() {
-		  		$(this).animate({top: '-35px'}, 'fast', function() {
-		  			file.focus();
-		  		}).find('span').html('下面');
-		  	})[0].id = 'cue';
+    //获取设置参数
+    function getSettingParam(flag) {
+        switch (flag) {
+            case 1:
+                return "slide";
+                break;
+            case 2:
+                return "fade";
+                break;
+            case 3:
+                return "cube";
+                break;
+            case 4:
+                return "coverflow";
+                break;
+            case 5:
+                return "flip";
+                break;
+        }
+    }
 
-		  	return this;
-		  },
+    var vue = new Vue({
+        el: "#scene",
+        data: {
+            baseurl: '',
+            pagelists: [{ "id": 26629, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 1, "create_time": "2017-07-20 15:30:49", "pagename": "1", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page0.jpg", "pagebg": { "backgroundColor": " rgba(250,250,250,1)", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/2b21be2f43d3896181870658e62bf3ac.png" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/7119c2ab6dae80a45218785f8ebffbdd.png", "out": { "css": { "width": "145", "height": "154", "top": "60", "left": "-14", "opacity": "1", "transform": "rotate(42deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "145", "height": "154", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/478b123db306ebe1f98ebd6458398bb0.png", "out": { "css": { "width": "143", "height": "176", "top": "18", "left": "208", "opacity": "1", "transform": "rotate(250deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "143", "height": "175", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fd4c4c4dfc515b69c83a44fc21cc9ac3.png", "out": { "css": { "width": "419", "height": "148", "top": "113", "left": "343", "opacity": "1", "transform": "rotate(270deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "419", "height": "248", "top": "46", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/40ae6e2afb5ed47bb33ae8211bf69635.png", "out": { "css": { "width": "320", "height": "128", "top": "18", "left": "233", "opacity": "1", "transform": "rotate(180deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "320", "height": "129", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "75", "height": "97", "top": "66", "left": "569", "opacity": "1", "transform": "rotate(35deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "75", "height": "97", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "88", "height": "114", "top": "114", "left": "47", "opacity": "1", "transform": "rotate(180deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "88", "height": "115", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/b957c8074853b5c3314d3257201353be.png", "out": { "css": { "width": "164", "height": "242", "top": "170", "left": "-23", "opacity": "1", "transform": "rotate(153deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "164", "height": "242", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ee41ba57103450444a14e1d118aa2328.png", "out": { "css": { "width": "190", "height": "182", "top": "-15", "left": "60", "opacity": "1", "transform": "rotate(242deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "405", "height": "638", "top": "322", "left": "180", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/bad48dad2049368cdebb735cecf594ce.png", "out": { "css": { "width": "152", "height": "152", "top": "379", "left": "-13", "opacity": "1", "transform": "rotate(315deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "371", "height": "584", "top": "41", "left": "51", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/478b123db306ebe1f98ebd6458398bb0.png", "out": { "css": { "width": "112", "height": "136", "top": "471", "left": "66", "opacity": "1", "transform": "rotate(44deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "112", "height": "136", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/675769d6b8f744e167a09d0c3b3e1f07.png", "out": { "css": { "width": "119", "height": "270", "top": "527", "left": "18", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "341", "height": "537", "top": "63", "left": "13", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ee41ba57103450444a14e1d118aa2328.png", "out": { "css": { "width": "183", "height": "194", "top": "761", "left": "-13", "opacity": "1", "transform": "rotate(143deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "418", "height": "658", "top": "318", "left": "191", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fc907e5e34b476a0c37d1f9cfa9460b9.png", "out": { "css": { "width": "223", "height": "115", "top": "734", "left": "458", "opacity": "0.7", "transform": "rotate(90deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "247", "height": "176", "top": "39", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png", "out": { "css": { "width": "213", "height": "236", "top": "318", "left": "456", "opacity": "1", "transform": "rotate(137deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "213", "height": "237", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/bad48dad2049368cdebb735cecf594ce.png", "out": { "css": { "width": "139", "height": "152", "top": "531", "left": "506", "opacity": "1", "transform": "rotate(134deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "376", "height": "593", "top": "59", "left": "56", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "117", "height": "151", "top": "867", "left": "508", "opacity": "1", "transform": "rotate(115deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "117", "height": "152", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/053a28552894ae66cc742c7cc5dbf880.png", "out": { "css": { "width": "221", "height": "267", "top": "758", "left": "324", "opacity": "1", "transform": "rotate(315deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "433", "height": "385", "top": "44", "left": "87", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png", "out": { "css": { "width": "207", "height": "230", "top": "821", "left": "98", "opacity": "1", "transform": "rotate(229deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "207", "height": "230", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/c1727357bddad4f8a7e9a4f0b48fbe3b.png", "out": { "css": { "width": "124", "height": "118", "top": "835", "left": "221", "opacity": "1", "transform": "rotate(335deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "179", "height": "174", "top": "20", "left": "26", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/5abb30f77e88a5ba506d51c14bb9221d.png", "out": { "css": { "width": "600", "height": "119", "top": "662", "left": "20", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "600", "height": "213", "top": "52", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "flipInY", "duration": "3.8", "delay": "5", "count": "1" }] }, { "type": "2", "content": "ZHANG ZHIMING", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "321", "left": "0", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "qiaoqiaoti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "italic", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "46px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.1", "delay": "3.5", "count": "1" }] }, { "type": "2", "content": "AND", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "381", "left": "0", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.1", "delay": "3.5", "count": "1" }] }, { "type": "2", "content": "YU CHUNJIAO", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "421", "left": "0", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "qiaoqiaoti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "italic", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "46px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.1", "delay": "3.5", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fa383bce1784ca5387199a6bca286795.png", "out": { "css": { "width": "304", "height": "78", "top": "680", "left": "164", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "574", "height": "904", "top": "69", "left": "128", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "flipInY", "duration": "3.8", "delay": "5", "count": "1" }] }, { "type": "2", "content": "\u5f20\u5fd7\u660e&amp;\u4f59\u6625\u5a07", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "539", "left": "1", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "kaiti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "28px", "lineHeight": "1.2", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "fadeIn", "duration": "2.4", "delay": "4.2", "count": "1" }] }, { "type": "2", "content": "\u2014\u2014 2017.10.10 \u2014\u2014", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "589", "left": "1", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "kaiti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.4", "delay": "4.2", "count": "1" }] }, { "type": "2", "content": "\u5a5a\u793c\u9080\u8bf7\u51fd", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "228", "left": "-2", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "kaiti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "36px", "lineHeight": "1.2", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "rotateIn", "duration": "1.6", "delay": "1.6", "count": "1" }] }] }, { "id": 26630, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 2, "create_time": "2017-07-20 15:30:55", "pagename": "2", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page1.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/2b21be2f43d3896181870658e62bf3ac.png" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/8e136d50c6c1ec5e9814cae85d503b3a.png", "out": { "css": { "width": "639", "height": "163", "top": "-7", "left": "0", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "639", "height": "242", "top": "33", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInDown", "duration": "1.3", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/abae0a895ab6f916ac9eb8fde0812a77.png", "out": { "css": { "width": "462", "height": "121", "top": "867", "left": "87", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "462", "height": "172", "top": "44", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "4.7", "delay": "5.1", "count": "1" }] }, { "type": "2", "content": "\u81f4:\u00a0\u4eb2\u7231\u7684\u670b\u53cb\n", "src": "", "out": { "css": { "width": "640", "height": "64", "top": "270", "left": "0", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "640", "height": "64", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "26px", "lineHeight": "1.5", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeInUp", "duration": "2.4", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u606d\u8bf7\u60a8\u548c\u60a8\u7684\u5bb6\u4eba\u5c4a\u65f6\u5149\u4e34\u5206\u4eab\u6211\u4eec\u7684\u559c\u60a6", "src": "", "out": { "css": { "width": "334", "height": "110", "top": "560", "left": "154", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-3", "difX": "-72" }, "properties": [] }, "in": { "css": { "width": "334", "height": "110", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "26px", "lineHeight": "1.5", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeInUp", "duration": "1.9", "delay": "3", "count": "1" }] }, { "type": "2", "content": "\u5f20\u5fd7\u660e&amp;\u4f59\u6625\u5a07\u2014\u2014\u00a0\u8bda\u631a\u9080\u8bf7\u00a0\u2014\u2014", "src": "", "out": { "css": { "width": "231", "height": "84", "top": "732", "left": "211", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-20", "difX": "409" }, "properties": [] }, "in": { "css": { "width": "231", "height": "84", "backgroundColor": "", "fontFamily": "kaiti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1.5", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeInUp", "duration": "2.4", "delay": "4.4", "count": "1" }] }, { "type": "2", "content": "\u6211\u4eec\u7ed3\u5a5a\u5566\uff01\n\u8c28\u5b9a\u4e8e2017\u5e74\u516c\u538610\u670810\u65e5\n\u6211\u4eec\u5c06\u4e3e\u884c\u7ed3\u5a5a\u5178\u793c\n\u656c\u5907\u559c\u5bb4", "src": "", "out": { "css": { "width": "427", "height": "157", "top": "345", "left": "108", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "10", "difX": "213" }, "properties": [] }, "in": { "css": { "width": "427", "height": "157", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "26px", "lineHeight": "1.5", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "fadeInUp", "duration": "2.2", "delay": "1.5", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fc43d6d069dc3c8a51293c458c04894c.png", "out": { "css": { "width": "527", "height": "98", "top": "156", "left": "56.5", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "527", "height": "831", "top": "464", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }] }, { "id": 26631, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 3, "create_time": "2017-07-20 15:30:59", "pagename": "3", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page2.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/2b21be2f43d3896181870658e62bf3ac.png" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/27bf656360469bb77061f8e7087fc892.png", "out": { "css": { "width": "250", "height": "158", "top": "16", "left": "201", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-1", "difX": "13", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "250", "height": "158", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none", "fontFamily": "", "fontSize": "" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "zoomIn", "duration": "2.4", "delay": "0.5", "count": "1" }] }, { "type": "2", "content": "\u5566", "src": "", "out": { "css": { "width": "109", "height": "111", "top": "744", "left": "451", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "47", "difX": "-3" }, "properties": [] }, "in": { "css": { "width": "109", "height": "111", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "72px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "2.4", "count": "1" }] }, { "type": "2", "content": "\u5a5a", "src": "", "out": { "css": { "width": "107", "height": "64", "top": "768", "left": "371", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "107", "height": "64", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "70px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "2", "count": "1" }] }, { "type": "2", "content": "\u7ed3", "src": "", "out": { "css": { "width": "133", "height": "93", "top": "784", "left": "280", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "29", "difX": "-2" }, "properties": [] }, "in": { "css": { "width": "133", "height": "93", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "84px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "1.6", "count": "1" }] }, { "type": "2", "content": "\u4eec", "src": "", "out": { "css": { "width": "130", "height": "107", "top": "699", "left": "280", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "43", "difX": "0" }, "properties": [] }, "in": { "css": { "width": "130", "height": "107", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "1", "count": "1" }] }, { "type": "2", "content": "\u6211", "src": "", "out": { "css": { "width": "140", "height": "109", "top": "691", "left": "192", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "45", "difX": "0" }, "properties": [] }, "in": { "css": { "width": "140", "height": "109", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "96px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "WEDDING", "src": "", "out": { "css": { "width": "170", "height": "64", "top": "137", "left": "235", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "170", "height": "64", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#ffffff", "fontSize": "24px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "zoomIn", "duration": "2.4", "delay": "0.4", "count": "1" }] }, { "type": "2", "content": "If i know what love is,\n it is because of you.", "src": "", "out": { "css": { "width": "226", "height": "136", "top": "815", "left": "79", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "129", "difX": "-18" }, "properties": [] }, "in": { "css": { "width": "226", "height": "136", "backgroundColor": "", "fontFamily": "mangguodidi", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "left", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "fadeInLeft", "duration": "2.3", "delay": "3", "count": "1" }] }, { "anim": [{ "type": "zoomIn", "duration": "2", "delay": "1", "count": "1" }], "content": "", "in": { "css": { "height": "438", "width": "562", "marginLeft": "0px", "marginTop": "0px", "fontFamily": "", "fontSize": "", "top": "0", "left": "0" }, "properties": [] }, "out": { "css": { "backgroundColor": "", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px", "borderColor": "rgba(0,0,0,1)", "borderRadius": "0px", "borderRadiusPerc": "0", "borderStyle": "solid", "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderWidth": "0", "boxShadow": "0px 0px 0px rgba(0,0,0,0.5)", "boxShadowDirection": "0", "boxShadowSize": "0", "color": "#676767", "height": "438", "left": "46", "lineHeight": "1", "opacity": "1", "paddingBottom": "0", "paddingTop": "0", "textAlign": "left", "top": "228", "transform": "rotateZ(0deg)", "width": "562", "zIndex": "0", "difY": "1", "difX": "1", "margintop": "0px" } }, "src": "http:\/\/res.yaoyue365.com\/user\/2017\/0728\/2e51992e2bf834cec2857a29fd27ca9d.png", "type": "4" }] }, { "id": 26632, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 4, "create_time": "2017-07-20 15:31:00", "pagename": "4", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page3.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/643f772d5a5fb711a23d1dc676e09d37.jpg" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/2b21be2f43d3896181870658e62bf3ac.png", "out": { "css": { "width": "544", "height": "678", "top": "260", "left": "48", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "544", "height": "857", "top": "98", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/aca446450771dd7d78357b91e0f184c8.jpg", "out": { "css": { "width": "257", "height": "259", "top": "373", "left": "57", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "2", "difX": "0", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "257", "height": "259", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInLeft", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/04fa4e0e84a8fd8b0176c3b29bbf1d6c.jpg", "out": { "css": { "width": "258", "height": "258", "top": "373", "left": "324", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "1", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "258", "height": "258", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "1", "delay": "1.1", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/634cb08639244ade3dc2fc778f01ac63.jpg", "out": { "css": { "width": "256", "height": "255", "top": "645", "left": "56", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "0", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "256", "height": "255", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInLeft", "duration": "1", "delay": "2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/676124767f983f948aedd1bd7cf33a9b.jpg", "out": { "css": { "width": "259", "height": "257", "top": "645", "left": "325", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-1", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "259", "height": "257", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "1", "delay": "2.5", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/f703d877c81a8e9035bea574de611929.png", "out": { "css": { "width": "70", "height": "67", "top": "63", "left": "244", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "2", "difX": "8", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "70", "height": "67", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none", "fontFamily": "", "fontSize": "" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.5", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u7231", "src": "", "out": { "css": { "width": "161", "height": "146", "top": "51", "left": "125", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "22", "difX": "2" }, "properties": [] }, "in": { "css": { "width": "161", "height": "146", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "120px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u6545\u4e8b", "src": "", "out": { "css": { "width": "185", "height": "108", "top": "77", "left": "314", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "44", "difX": "-6" }, "properties": [] }, "in": { "css": { "width": "185", "height": "108", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u7684", "src": "", "out": { "css": { "width": "92", "height": "95", "top": "126", "left": "240", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-3", "difX": "1" }, "properties": [] }, "in": { "css": { "width": "92", "height": "95", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "70px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/5fbb70f1d8dc1defe68074772f588eec.png", "out": { "css": { "width": "104", "height": "114", "top": "242", "left": "547", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "104", "height": "114", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/b957c8074853b5c3314d3257201353be.png", "out": { "css": { "width": "126", "height": "185", "top": "298", "left": "520", "opacity": "1", "transform": "rotate(155deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "126", "height": "185", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fc907e5e34b476a0c37d1f9cfa9460b9.png", "out": { "css": { "width": "119", "height": "85", "top": "214", "left": "487", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "119", "height": "85", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none", "fontFamily": "", "fontSize": "" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "65", "height": "85", "top": "246", "left": "519", "opacity": "1", "transform": "rotate(246deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "65", "height": "85", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/053a28552894ae66cc742c7cc5dbf880.png", "out": { "css": { "width": "163", "height": "197", "top": "177", "left": "347", "opacity": "1", "transform": "rotate(311deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "221", "height": "197", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/0dd08a5336ae68e44af061a9e3ba71ea.png", "out": { "css": { "width": "123", "height": "178", "top": "267", "left": "-5", "opacity": "1", "transform": "rotate(196deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "123", "height": "178", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/7119c2ab6dae80a45218785f8ebffbdd.png", "out": { "css": { "width": "99", "height": "106", "top": "200", "left": "37", "opacity": "1", "transform": "rotate(305deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "99", "height": "106", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fd4c4c4dfc515b69c83a44fc21cc9ac3.png", "out": { "css": { "width": "213", "height": "125", "top": "207", "left": "86", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "213", "height": "126", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/478b123db306ebe1f98ebd6458398bb0.png", "out": { "css": { "width": "119", "height": "145", "top": "227", "left": "49", "opacity": "1", "transform": "rotate(129deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "119", "height": "145", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.9", "delay": "4.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/abae0a895ab6f916ac9eb8fde0812a77.png", "out": { "css": { "width": "220", "height": "66", "top": "905", "left": "210", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "266", "height": "99", "top": "48", "left": "60", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "4.3", "delay": "3.9", "count": "1" }] }] }, { "id": 26633, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 5, "create_time": "2017-07-20 15:31:01", "pagename": "5", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page4.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/2b21be2f43d3896181870658e62bf3ac.png" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/f258b96308362dd6fb31793e8abc1e9a.jpg", "out": { "css": { "width": "285", "height": "431", "top": "75", "left": "27", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "1", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "285", "height": "431", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInLeft", "duration": "2.2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/c04b2c6276f3feec4ab9c1c7f0cf5a42.jpg", "out": { "css": { "width": "272", "height": "206", "top": "72", "left": "335", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "2", "difX": "0", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "272", "height": "206", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/5d5574a5f521e27750571355a255133d.jpg", "out": { "css": { "width": "272", "height": "204", "top": "302", "left": "337", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "1", "difX": "3", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "272", "height": "204", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/91f5c3c8b591e1dbdd30fa1b81b22214.jpg", "out": { "css": { "width": "269", "height": "200", "top": "531", "left": "338", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "0", "difX": "0", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "269", "height": "200", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u6267", "src": "", "out": { "css": { "width": "161", "height": "111", "top": "752", "left": "62", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "47", "difX": "1" }, "properties": [] }, "in": { "css": { "width": "161", "height": "111", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "100px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u5b50", "src": "", "out": { "css": { "width": "161", "height": "92", "top": "754", "left": "152", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-28", "difX": "0" }, "properties": [] }, "in": { "css": { "width": "161", "height": "92", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u4e4b", "src": "", "out": { "css": { "width": "161", "height": "120", "top": "843", "left": "107", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "56", "difX": "-2" }, "properties": [] }, "in": { "css": { "width": "161", "height": "120", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u624b", "src": "", "out": { "css": { "width": "161", "height": "119", "top": "847", "left": "188", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "55", "difX": "4" }, "properties": [] }, "in": { "css": { "width": "161", "height": "119", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "100px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u5728\u5929\u613f\u4f5c\u6bd4\u7ffc\u9e1f\uff0c\u5728\u5730\u613f\u4e3a\u8fde\u7406\u679d\u3002", "src": "", "out": { "css": { "width": "266", "height": "101", "top": "658", "left": "36", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "37", "difX": "-2" }, "properties": [] }, "in": { "css": { "width": "266", "height": "101", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1.35", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeInNormal", "duration": "3", "delay": "1.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/b957c8074853b5c3314d3257201353be.png", "out": { "css": { "width": "160", "height": "236", "top": "752", "left": "349", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "160", "height": "235", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.9", "delay": "1.2", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/675769d6b8f744e167a09d0c3b3e1f07.png", "out": { "css": { "width": "82", "height": "176", "top": "-62", "left": "59", "opacity": "1", "transform": "rotate(123deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "249", "height": "392", "top": "82", "left": "20", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/053a28552894ae66cc742c7cc5dbf880.png", "out": { "css": { "width": "185", "height": "164", "top": "-38", "left": "-64", "opacity": "1", "transform": "rotate(173deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "185", "height": "164", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png", "out": { "css": { "width": "138", "height": "153", "top": "12", "left": "-49", "opacity": "1", "transform": "rotate(298deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "138", "height": "153", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "105", "height": "137", "top": "106", "left": "-48", "opacity": "1", "transform": "rotate(139deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "105", "height": "137", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fd4c4c4dfc515b69c83a44fc21cc9ac3.png", "out": { "css": { "width": "190", "height": "112", "top": "-49", "left": "79", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "190", "height": "112", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/478b123db306ebe1f98ebd6458398bb0.png", "out": { "css": { "width": "116", "height": "142", "top": "-23", "left": "94", "opacity": "1", "transform": "rotate(126deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "116", "height": "142", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }] }, { "id": 26634, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 6, "create_time": "2017-07-20 15:31:03", "pagename": "6", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page5.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/2b21be2f43d3896181870658e62bf3ac.png" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/36a8766689a07335e173b3051623cf58.jpg", "out": { "css": { "width": "292", "height": "469", "top": "488", "left": "27", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-1", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "292", "height": "469", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInLeft", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/2d5b4ae37f27ca416efbf5ad27f77448.jpg", "out": { "css": { "width": "283", "height": "282", "top": "72", "left": "334", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "0", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "283", "height": "282", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/c1240ea51bedd0c3f9229796ab1e2e1f.jpg", "out": { "css": { "width": "279", "height": "278", "top": "378", "left": "334", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "0", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "279", "height": "278", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/84bd784affd814a70e47c45f89836419.jpg", "out": { "css": { "width": "278", "height": "282", "top": "675", "left": "334", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-5", "difX": "-1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "278", "height": "282", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInRight", "duration": "2", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/abae0a895ab6f916ac9eb8fde0812a77.png", "out": { "css": { "width": "282", "height": "104", "top": "368", "left": "28", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "282", "height": "105", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.5", "delay": "2.9", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/675769d6b8f744e167a09d0c3b3e1f07.png", "out": { "css": { "width": "82", "height": "176", "top": "-53", "left": "59", "opacity": "1", "transform": "rotate(123deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "249", "height": "392", "top": "82", "left": "20", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/053a28552894ae66cc742c7cc5dbf880.png", "out": { "css": { "width": "185", "height": "164", "top": "-28", "left": "-65", "opacity": "1", "transform": "rotate(173deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "185", "height": "164", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/7119c2ab6dae80a45218785f8ebffbdd.png", "out": { "css": { "width": "89", "height": "94", "top": "-39", "left": "101", "opacity": "1", "transform": "rotate(327deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "89", "height": "94", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/ffb7b6e5018d6366a5d06e2f1fcfeb8a.png", "out": { "css": { "width": "138", "height": "153", "top": "22", "left": "-50", "opacity": "1", "transform": "rotate(298deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "138", "height": "153", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fe310449d1e5926cb9c8363eeac5119e.png", "out": { "css": { "width": "105", "height": "137", "top": "116", "left": "-49", "opacity": "1", "transform": "rotate(139deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "105", "height": "137", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/478b123db306ebe1f98ebd6458398bb0.png", "out": { "css": { "width": "116", "height": "142", "top": "-21", "left": "96", "opacity": "1", "transform": "rotate(126deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "116", "height": "142", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/fd4c4c4dfc515b69c83a44fc21cc9ac3.png", "out": { "css": { "width": "190", "height": "112", "top": "-40", "left": "88", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "190", "height": "112", "top": "0", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "2.1", "delay": "3", "count": "1" }] }, { "type": "2", "content": "\u4e0e", "src": "", "out": { "css": { "width": "161", "height": "113", "top": "34", "left": "62", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-49", "difX": "12" }, "properties": [] }, "in": { "css": { "width": "161", "height": "113", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "100px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.2", "delay": "1.3", "count": "1" }] }, { "type": "2", "content": "\u5b50", "src": "", "out": { "css": { "width": "161", "height": "96", "top": "116", "left": "142", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-32", "difX": "10" }, "properties": [] }, "in": { "css": { "width": "161", "height": "96", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.2", "delay": "1.3", "count": "1" }] }, { "type": "2", "content": "\u5055", "src": "", "out": { "css": { "width": "131", "height": "88", "top": "170", "left": "81", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "-24", "difX": "8" }, "properties": [] }, "in": { "css": { "width": "131", "height": "88", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "80px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.2", "delay": "1.3", "count": "1" }] }, { "type": "2", "content": "\u8001", "src": "", "out": { "css": { "width": "161", "height": "124", "top": "238", "left": "143", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "61", "difX": "-1" }, "properties": [] }, "in": { "css": { "width": "161", "height": "124", "backgroundColor": "", "fontFamily": "tiantianquan", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "100px", "lineHeight": "1.3", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": [] }, "anim": [{ "type": "fadeIn", "duration": "2.2", "delay": "1.3", "count": "1" }] }, { "type": "2", "content": "\u6b7b\u751f\u5951\u9614\uff0c\u4e0e\u5b50\u6210\u8bf4\u3002", "src": "", "out": { "css": { "width": "200", "height": "91", "top": "299", "left": "1", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "27", "difX": "-4" }, "properties": [] }, "in": { "css": { "width": "200", "height": "91", "backgroundColor": "", "fontFamily": "xiaoluti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "24px", "lineHeight": "1.35", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0" }, "properties": [] }, "anim": [{ "type": "fadeInLeft", "duration": "3", "delay": "3.1", "count": "1" }] }] }, { "id": 26635, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 7, "create_time": "2017-07-20 15:31:04", "pagename": "7", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page6.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/643f772d5a5fb711a23d1dc676e09d37.jpg" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/2b21be2f43d3896181870658e62bf3ac.png", "out": { "css": { "width": "686", "height": "514", "top": "98", "left": "-23", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "688", "height": "1084", "top": "72", "left": "0", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInNormal", "duration": "0", "delay": "0", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/e6c504fd5d743f63637aa6edcefd6c31.png", "out": { "css": { "width": "642", "height": "450", "top": "134", "left": "-1", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "794", "height": "1251", "top": "124", "left": "56", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "3.4", "delay": "0.6", "count": "1" }] }, { "type": "m", "content": "", "src": "", "out": { "css": { "width": "428", "height": "255", "top": "239", "left": "101", "opacity": "1", "transform": "rotate(0deg)", "difY": "1", "difX": "2", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "428", "height": "255", "top": "0", "left": "0" }, "properties": { "address": "\u9ad8\u65b0\u533a\u4e16\u7eaa\u57ce\u8def88\u53f7", "lat": "31.837506", "lng": "117.309403", "zoom": "16" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "2", "content": "\u5409\u65f6\uff1a2017\u5e74\u516c\u538610\u670810\u65e5\u4e2d\u534812\u65f628\u5206\n\u5bb4\u5740\uff1a\u9ad8\u65b0\u533a\u4e16\u7eaa\u57ce\u8def88\u53f7\u5929\u5802\u6d32\u9645\u5927\u996d\u5e972\u697c\uff08\u8fd1\u65b0\u4f1a\u5c55\u4e2d\u5fc3\uff09", "src": "", "out": { "css": { "width": "465", "height": "191", "top": "693", "left": "91", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px", "difY": "11", "difX": "0" }, "properties": [] }, "in": { "css": { "width": "465", "height": "191", "backgroundColor": "", "fontFamily": "kaiti", "bolderWidth": "0pxpx", "borderColor": "#000000", "borderStyle": "none", "borderRadius": "0px", "fontStyle": "normal", "fontWeight": "normal", "fontDecoration": "none", "textAlign": "center", "textValign": "middle", "color": "#000", "fontSize": "28px", "lineHeight": "1.5", "boxShadow": "black 0px 0px 0", "letter-spacing": "0px", "top": "0", "left": "0" }, "properties": { "hasUrl": "0" } }, "anim": [{ "type": "fadeInNormal", "duration": "3.1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/d7f25cf65a3d309c996c41a9d759d07a.png", "out": { "css": { "width": "150", "height": "79", "top": "86", "left": "251", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "392", "height": "616", "top": "50", "left": "148", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }] }, { "id": 26636, "sceneid": 667, "scenecode": "CYK9h7R9L6mI", "pagenum": 8, "create_time": "2017-07-20 15:31:04", "pagename": "8", "userid": 0, "thumb": "http:\/\/res.yaoyue365.com\/syspic\/bg\/CYK9h7R9L6mI_page7.jpg", "pagebg": { "backgroundColor": "#ffffff", "backgroundImage": "http:\/\/res.yaoyue365.com\/syspic\/bg\/643f772d5a5fb711a23d1dc676e09d37.jpg" }, "update_time": "2017-08-11 14:08:56", "is_tpl": 0, "elements": [{ "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/2b21be2f43d3896181870658e62bf3ac.png", "out": { "css": { "width": "431", "height": "1064", "top": "-22", "left": "103", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "675", "height": "1064", "top": "0", "left": "114", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "fadeInUp", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/9c6c345454f5ed847a9868132254bda3.jpg", "out": { "css": { "width": "185", "height": "186", "top": "103", "left": "228", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "100px", "difY": "0", "difX": "1", "margintop": "0px" }, "properties": [] }, "in": { "css": { "width": "185", "height": "186", "top": "0", "left": "0", "borderRadius": "100px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "rotateIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/7311d22434f307a29d78402503d96f49.png", "out": { "css": { "width": "288", "height": "301", "top": "22", "left": "199", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "510", "height": "804", "top": "219", "left": "145", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "rotateIn", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "i", "id": "14962458848731", "inputType": "name", "moduleType": "contact", "formid": "1496245967710", "content": "", "src": "", "out": { "css": { "width": "381", "height": "72", "top": "339", "left": "130", "opacity": "1", "transform": "rotate(0deg)" }, "properties": [] }, "in": { "css": { "width": "381", "height": "72", "borderWidth": "2px", "borderColor": "#7b946d", "borderStyle": "solid", "boxshadow": "0", "background": "#fcfcfc", "borderRadius": "8px", "color": "#4B4B4B ", "fontSize": "28px", "lineHeight": "72px", "padding": "20px" }, "properties": { "placeholder": "\u59d3\u540d", "regularType": "normal", "require": "" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "i", "id": "14962458963041", "inputType": "name", "moduleType": "contact", "formid": "1496245967710", "content": "", "src": "", "out": { "css": { "width": "381", "height": "72", "top": "431", "left": "130", "opacity": "1", "transform": "rotate(0deg)" }, "properties": [] }, "in": { "css": { "width": "381", "height": "72", "borderWidth": "2px", "borderColor": "#7b946d", "borderStyle": "solid", "boxshadow": "0", "background": "#fcfcfc", "borderRadius": "8px", "color": "#4B4B4B ", "fontSize": "28px", "lineHeight": "72px", "padding": "20px" }, "properties": { "placeholder": "\u4eba\u6570", "regularType": "normal", "require": "" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "i", "id": "14962459046061", "inputType": "name", "moduleType": "contact", "formid": "1496245967710", "content": "", "src": "", "out": { "css": { "width": "381", "height": "72", "top": "523", "left": "130", "opacity": "1", "transform": "rotate(0deg)" }, "properties": [] }, "in": { "css": { "width": "381", "height": "72", "borderWidth": "2px", "borderColor": "#7b946d", "borderStyle": "solid", "boxshadow": "0", "background": "#fcfcfc", "borderRadius": "8px", "color": "#4B4B4B ", "fontSize": "28px", "lineHeight": "72px", "padding": "20px" }, "properties": { "placeholder": "\u7535\u8bdd", "regularType": "phone", "require": "" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "i", "id": "14962459089774", "inputType": "name", "moduleType": "textbox", "formid": "1496245967710", "content": "", "src": "", "out": { "css": { "width": "381", "height": "216", "top": "615", "left": "130", "opacity": "1", "transform": "rotate(0deg)" }, "properties": [] }, "in": { "css": { "width": "381", "height": "216", "borderWidth": "2px", "borderColor": "#7b946d", "borderStyle": "solid", "boxshadow": "0", "background": "#fcfcfc", "borderRadius": "8px", "color": "#4B4B4B ", "fontSize": "28px", "lineHeight": "72px", "padding": "20px" }, "properties": { "placeholder": "\u60a8\u7684\u795d\u798f", "regularType": "normal", "require": "" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "s", "id": "14962459089774", "inputType": "submit", "moduleType": "submit", "formid": "1496245967710", "content": "", "src": "", "out": { "css": { "width": "381", "height": "72", "top": "851", "left": "130", "opacity": "1", "transform": "rotate(0deg)" }, "properties": [] }, "in": { "css": { "width": "381", "height": "216", "borderWidth": "0px", "borderColor": "#7b946d", "borderStyle": "solid", "boxshadow": "0", "textAlign": "center", "background": "#7b946d", "borderRadius": "8px", "color": "#ffffff", "fontSize": "32px", "lineHeight": "72px" }, "properties": { "str": "\u53c2\u52a0\u5a5a\u793c", "ok": "\u611f\u8c22\u4f60\u7684\u586b\u5199" } }, "anim": [{ "type": "fadeInNormal", "duration": "1", "delay": "0.6", "count": "1" }] }, { "type": "4", "content": "", "src": "http:\/\/res.yaoyue365.com\/syspic\/img\/8ce24073a114feba33ff345af1cfec3a.png", "out": { "css": { "width": "336", "height": "87", "top": "898", "left": "152", "opacity": "1", "transform": "rotate(0deg)", "borderRadius": "0px" }, "properties": [] }, "in": { "css": { "width": "414", "height": "652", "top": "677", "left": "17", "borderRadius": "0px", "boxShadow": "black 0px 0px 0px", "color": "rgba(0,0,0,0)px", "bolderWidth": "0px", "borderColor": "none", "borderStyle": "none" }, "properties": [] }, "anim": [{ "type": "zoomIn", "duration": "1", "delay": "0.6", "count": "1" }] }] }],
+            currentpage: 0,
+            musicflag: 1,
+            bili1: 0.5,
+            bili2: 0.5,
+            isplay: true,
+            isPage: ispage,
+            pageStr: 0,
+            callBk: '',
+            startTime: (new Date()).getTime(),
+        },
+        components: {
+            'my-page': pagelist,
 
-		  //开始游戏
-		  play: function() {
-		  	var that = this, levelList = this.area.find('.levelList');
 
-		  	if( levelList.css('marginLeft') === '300px') {
-		  		start();
-		  		return;
-		  	}
+        },
+        methods: {
+            playOrPauseMusic: function() {
+                var audio = document.getElementById("sceneaudio");
+                if (audio.paused) {
+                    // audio.src =this.sceneInfo.music;
+                    audio.play();
+                    this.isplay = true;
+                } else {
 
-		  	levelList.animate({marginLeft: '300px'}, function() {
-		  		levelList.animate({width: '100px'}, function() {
-		  			$('<li>恢复顺序</li>').addClass('opt').appendTo(levelList).on('click', function() {
-		  				that.recover();
-		  			}).parent().css('height', '445px').animate({marginTop: '-=35px'});
-		  			start();
-		  		});
-		  	});
+                    this.isplay = false;
+                    audio.pause()
+                }
+            },
+            showimg: function(src) {
+                return this.baseurl + src
+            },
+        }
+    });
+    $(function() {
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            //autoplay:2000,
+            autoplay: auto_play,
+            loop: loop,
+            height: 504,
+            pagination: '.swiper-pagination',
+            paginationType: 'progress',
+            autoplayDisableOnInteraction: false,
+            paginationClickable: true,
+            autoplayStopOnLast: true,
+            effect: getSettingParam(page_mode),
 
-		  	function start() {
-		  		var item = that.area.find('.item');
-		  		if (item.size()) {
-		  			item.remove();
-		  		}
-		  		that.draw().mix().area.off('click').on('click', '.item', function() {
-		  				that.addEvent($(this));
-		  		});
-		  	}
+            //virtualTranslate : true,
+            mousewheelControl: true,
+            onInit: function(swiper) {
+                //_self.vue._data.isPage = _self.is_page == 0 ? false : true;
+                _self.vue._data.pageStr = swiper.realIndex + 1 + "/" + _self.vue._data.pagelists.length;
+                //console.log(swiper.loop)
 
-		  },
+                //console.log(_self.vue._data.currentpage)
+                //swiperAnimateCache(swiper);
+                //swiperAnimate(swiper);
+            },
+            onSlideChangeStart: function(swiper) {
+                $(".swiper-slide-active").find('.item').removeClass('nopage').addClass('showpage')
+            },
+            onTransitionStart: function(swiper) {
+                //console.log(swiper.activeIndex)
+                _self.vue._data.currentpage = swiper.realIndex;
+                _self.vue._data.pageStr = swiper.realIndex + 1 + "/" + _self.vue._data.pagelists.length;
+            }
 
-		  //状态管理
-		  state: {
-		  	  level:3,
-			  minLevel: 3,
-			  maxLevel:21,
-			  position: [],
-			  src: ['images/baby.jpg'],
-			  defaultImg: 'images/baby.jpg'
-		  },
+        })
 
-		  //绘制拼图界面
-		  draw: function() {
-		  	var that = this, layout = that.getLayout(), len = layout.length, frag = document.createDocumentFragment(), i;
+        $('#prev').click(function() {
+            mySwiper.slidePrev();
+        })
+        $('#next').click(function() {
+            mySwiper.slideNext();
+        })
+    })
 
-			 for (i = 0; i < len; i += 1) {
-			 	frag.appendChild(that.createCell(layout[i]));
-			 }
-			 that.area[0].appendChild(frag);
-			 return this;
-		  },
 
-		  //绘制起始界面
-		  drawIndex: function() {
-			  var ul = $('<ul></ul>'),
-			  span = $('<span>◆</span>').addClass('span'),
-			  li0 = $('<li>选择难度</li>').css('position', 'relative').append(span),
-			  li1 = $('<li>3*3</li>'),
-			  li2 = $('<li>4*4</li>'),
-			  li3 =$('<li>5*5</li>'),
-			  li4 = $('<li>随机难度</li>');
-			  
-			  ul.addClass('levelList').append(li0, li1, li2, li3, li4).appendTo(this.area).find('li').not(li0).addClass('opt');
-			  return this;
-		  },
-		  
-		 //创建拼图格子
-		  createCell: function(style) {
-			 var that = this, div = $('<div></div>'),
-			  img = $('<img>') .attr('src', this.state.src[0]).css({
-			  	marginLeft: -style.left + 'px',
-			  	marginTop: -style.top + 'px'
-			  }).on('error', function() {
-			  	$(this).attr('src', that.state.defaultImg);
-			  }),
-			  mask = $('<div></div>').addClass('mask'),
-			  w = this.area.innerWidth() / this.state.level;  
-  
-			  div.addClass('item').append(img, mask).css({
-				  width: w + 'px',
-				  height: w + 'px',
-				  left: style.left + 'px',
-				  top: style.top + 'px'
-				}).data('original', {
-					left: style.left,
-					top: style.top
-				});
-				
-			  return div[0];
-		  },
 
-		  //获取布局
-		  getLayout: function() {
-		  	var num = Math.pow(this.state.level, 2),
-		  	w = this.area.innerWidth() / this.state.level,
-		  	layout = [],
-		  	i = 0;
 
-		  	do {
-		  		layout[layout.length] = {
-		  			left: (i % this.state.level) *  w,
-		  			top: ((i / this.state.level)|0) * w
-		  		};
-		  		i += 1;
-		  	} while (num -= 1);
+    layui.config({
+        base: "js/"
+    }).use('index');
 
-		  	this.state.position = layout;
-		  	return layout;
-		  },
-
-		  //选择难度
-		  getLevel: function() {
-			  var that = this;
-			  this.area.find('.levelList').on('click', 'li', function() {
-				  var i = $(this).index();
-
-				  switch(i) {
-					case 0:
-					break;
-					
-					case 1:
-					that.state.level = 3;
-					that.play();
-					break;
-					 
-					case 2:
-					that.state.level = 4;
-					that.play();
-					break;
-					
-					case 3:
-					that.state.level = 5;
-					that.play();
-					break;
-
-					case 4:
-					that.state.level = (Math.random() * (that.state.maxLevel - that.state.minLevel) + that.state.minLevel) | 0;
-					that.play();
-					break;
-				  }
-			  });
-
-			  return this;
-		  },
-		  
-		  //添加事件
-		  addEvent: function(elem) {
-		  	var that = this;
-		  	if (elem.siblings().hasClass('selected')) {
-		  		that.exchange(elem);
-		  		return;
-		  	};
-
-		  	elem.toggleClass('selected').siblings().removeClass('selected');
-		  },
-
-		  //弄乱顺序
-		  mix: function() {
-		  	var item = this.area.children('.item').removeClass('selected'),
-		  	position = this.state.position.slice().sort(function() {
-		  		return 0.5 - Math.random();
-		  	}), i = 0;
-
-		  	do {
-		  		item.eq(i).animate(position.shift());
-		  		i += 1;
-		  	} while (position.length);
-
-		  	return this;
-		  },
-
-		  //恢复顺序
-		  recover: function() {
-		  	var that = this, item = that.area.off('click').children('.item'), len = item.length, elem, i;
-		  	
-		  	for (i = 0; i < len; i += 1) {
-		  		elem = item.eq(i);
-		  		elem.animate(elem.data('original'), 1000);
-		  	}
-		  	item.css('border', 'none');
-		  },
-		  
-		  //检测顺序
-		  check: function() {
-		  	var that = this, item = that.area.children('.item'), len = item.length, elem, position, original, i;
-
-		  	for (i = 0; i < len; i += 1) {
-		  		elem = item.eq(i);
-		  		position = elem.position();
-		  		original = elem.data('original');
-		  		if (Math.abs(position.left - original.left) > 1 || Math.abs(position.top - original.top) > 1) {
-		  			return;
-		  		}
-		  	}
-		  	item.off('click');
-		  	alert('恭喜你过了难度' + that.state.level + '级！');
-		  	item.css('border', 'none');
-		  },
-
-		  //交换顺序
-		  exchange: function(elem) {
-		  	var selected = $('.selected'), that = this;
-		  	
-		  	if (elem.is(':animated') || selected.is(':animated')) {
-		  		return;
-		  	}
-		  	elem.css('z-index', 10).animate(selected.position(), function() {
-		  		elem.css('z-index', 0);
-		  	});
-		  	selected.css('z-index', 10).animate(elem.position(), function() {
-		  		selected.removeClass('selected').css('z-index', 0);
-		  		that.check();
-		  	});
-		  },
-
-		  //浏览器能力测试
-		  toDie: function() {
-		  	var that = this, noZuoNoDie = $('#noZuoNoDie'), test = $('#test'), $try = $('#try');
-
-		  	test.on('focus blur', function(e) {
-		  		var defaultValue = this.defaultValue, type = e.type;
-		  		switch(type) {
-		  			case 'focus':
-		  			if (test.val() === defaultValue) {
-		  			test.val('');
-		  		       }
-		  			break;
-
-		  			case 'blur':
-		  			if (!test.val().length) {
-		  				test.val(defaultValue);
-		  			}
-		  			break;
-		  		}
-		  	});
-
-		  	$try.on('click', function() {
-		  		var value = parseInt(test.val());
-		  		
-		  		console.log(value);
-		  		 if (typeof value !== 'number' || value !== value) {
-		  			alert('请输入正确格式的数字');
-		  			return;
-		  		} else if (!value.toString().length) {
-		  			alert('不要留空');
-		  			return;
-		  		} else if (value === 0) {
-		  			alert('不要输入0！')
-		  			return;
-		  		}
-
-		  		value = Math.abs(value);
-
-		  		that.state.level = value;
-		  		that.play();
-		  	});
-		  }
-	  };
-	  puzzle.init();
-  });
-</script>
+    var csss = new QRCode("qrcode", {
+        text: "http://" + window.location.host + "/v/CYK9h7R9L6mI",
+        width: 250,
+        height: 250,
+        colorDark: '#222222',
+        colorLight: '#f3f3f3',
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6edfc4af011985567296d32283f581ce";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <iframe id="layui-upload-iframe" class="layui-upload-iframe" name="layui-upload-iframe"></iframe>
 </body>
+
 </html>
